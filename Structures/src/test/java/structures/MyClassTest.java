@@ -8,6 +8,6 @@ public class MyClassTest {
 
 	@Test
 	public void test1() {
-		assertEquals(36, MyClass.result());
+		assertEquals(36, MyClass.result()) ;
 	}
 }
