@@ -6,7 +6,7 @@ public class HelloTest {
     }
 
     public static void main(String[] args) {
-        String[] array = {"Bonjour", "Limoges", "!"};
+        String[] array = {"Bonjour ", "Limoges", "!"};
         for (String word : array) {
             HelloTest.echo(word);
         }
