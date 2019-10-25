@@ -7,8 +7,8 @@ public class QueuesTest {
 	
 	 public static void main(String[] args) {
 	      
-		/* playWithQueue();
-		 playWithStack();*/
+		/* playWithQueue();*/
+		 playWithStack();
 		 playWithMaxPriorityQueue();
 		 
 		 System.out.println(maxCompare(4.0,6.0));
@@ -54,6 +54,9 @@ private static void playWithMaxPriorityQueue( ) {
 	 filePrio.add(1.0);
 	 filePrio.add(2.0);
 	 filePrio.add(4.0);
+	 filePrio.add(0.0);
+	 filePrio.add(18.0);
+	 filePrio.add(12.0);
 
 for (double i : filePrio) {
 	 System.out.println(i);
