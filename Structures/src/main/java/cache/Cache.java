@@ -2,8 +2,10 @@ package cache;
 
 public abstract class Cache<K,V> {
 	
+	protected int capacity;
+	
 	protected Cache(int capacity) {
-		
+		this.capacity = capacity;
 	}
 	
 	public V get(K key ) {
