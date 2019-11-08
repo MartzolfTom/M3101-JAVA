@@ -43,6 +43,7 @@ public class FifoCache<K, V> extends Cache<K, V> {
 		// Rien a faire en FIFO
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	protected K[] toArray() {
 		return (K[]) file.toArray();

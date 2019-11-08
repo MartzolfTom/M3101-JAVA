@@ -1,5 +1,7 @@
 package cache;
 
+import java.util.Arrays;
+
 public abstract class Cache<K,V> {
 	
 	protected int capacity;
@@ -9,17 +11,23 @@ public abstract class Cache<K,V> {
 	}
 	
 	public V get(K key ) {
+		if(getValue(key) != null) {
+			reorder(key);
+			return getValue(key);
+		}
 		return null;
 	}
 	
 	public void put(K key, V value) {
-		
+		if(this.size() == this.capacity) {
+			removeEntry();
+		}
+		insertEntry(key, value);
 	}
 	
 	@Override
 	public String toString() {
-		return null;
-		
+		return Arrays.toString(toArray());
 	}
 	
 	protected abstract int size();

@@ -1,52 +1,58 @@
 package cache;
 
-public class MruCache<K, V> extends Cache<K,V>{
+import java.util.ArrayDeque;
+import java.util.HashMap;
+
+public class MruCache<K, V> extends Cache<K, V> {
+
+	protected ArrayDeque<K> file;
+	protected HashMap<K, V> cache;
 
 	protected MruCache(int capacity) {
 		super(capacity);
-		// TODO Auto-generated constructor stub
+		file = new ArrayDeque<>();
+		cache = new HashMap<>();
 	}
 
 	@Override
 	protected int size() {
-		// TODO Auto-generated method stub
-		return 0;
+		return cache.size();
 	}
 
 	@Override
 	protected V getValue(K key) {
-		// TODO Auto-generated method stub
-		return null;
+		if (!cache.containsKey(key))
+			return null;
+		return cache.get(key);
 	}
 
 	@Override
 	protected void removeEntry() {
-		// TODO Auto-generated method stub
-		
+		cache.remove(file.getFirst());
+		file.removeFirst();
 	}
 
 	@Override
 	protected void insertEntry(K key, V value) {
-		// TODO Auto-generated method stub
-		
+		cache.put(key, value);
+		file.add(key);
 	}
 
 	@Override
 	protected void reorder(K key) {
-		// TODO Auto-generated method stub
-		
+		file.removeLast();
+		file.addLast(key);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	protected K[] toArray() {
-		// TODO Auto-generated method stub
-		return null;
+		return (K[]) file.toArray();
 	}
 
 	@Override
 	protected void clear() {
-		// TODO Auto-generated method stub
-		
+		cache.clear();
 	}
 
 }
