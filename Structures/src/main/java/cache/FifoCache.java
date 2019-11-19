@@ -8,7 +8,7 @@ public class FifoCache<K, V> extends Cache<K, V> {
 	protected ArrayDeque<K> file;
 	protected HashMap<K, V> cache;
 
-	protected FifoCache(int capacity) {
+	public FifoCache(int capacity) {
 		super(capacity);
 		file = new ArrayDeque<>();
 		cache = new HashMap<>();

@@ -8,7 +8,7 @@ public class LruCache<K, V> extends Cache<K, V> {
 	protected ArrayDeque<K> file;
 	protected HashMap<K, V> cache;
 
-	protected LruCache(int capacity) {
+	public LruCache(int capacity) {
 		super(capacity);
 		file = new ArrayDeque<>();
 		cache = new HashMap<>();
